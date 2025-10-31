@@ -180,3 +180,48 @@ header h1 {
   transform: scale(0.5);
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('gallery-overlay');
+  const imageFolder = 'img/random_gallery/';
+  const imageExtensions = ['.jpg', '.png'];
+
+  // Numero di immagini da generare
+  const numImages = 10;
+
+  // Genera casualmente immagini
+  for (let i = 0; i < numImages; i++) {
+    const img = document.createElement('img');
+    const randomNum = Math.floor(Math.random() * 1000);
+    img.src = `${imageFolder}${randomNum}${Math.random() > 0.5 ? '.jpg' : '.png'}`;
+    overlay.appendChild(img);
+
+    // Posizione casuale
+    const x = Math.random() * window.innerWidth;
+    const y = Math.random() * window.innerHeight;
+
+    img.style.left = `${x}px`;
+    img.style.top = `${y}px`;
+
+    // Effetto visivo
+    setTimeout(() => {
+      img.style.opacity = 1;
+      img.style.transform = 'scale(1)';
+    }, i * 150);
+  }
+
+  // ➕ Supporto mobile (touch)
+  function handleMove(e) {
+    let x, y;
+    if (e.touches) {
+      x = e.touches[0].clientX;
+      y = e.touches[0].clientY;
+    } else {
+      x = e.clientX;
+      y = e.clientY;
+    }
+  }
+
+  document.addEventListener('mousemove', handleMove);
+  document.addEventListener('touchmove', handleMove);
+});
+
