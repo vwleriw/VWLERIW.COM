@@ -2,10 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const overlay = document.getElementById('gallery-overlay');
   const imageFolder = 'img/random_gallery/';
   const imageExtensions = ['.jpg', '.png'];
-
-  // 🔄 Recupera automaticamente tutte le immagini nella cartella
-  // (non possiamo leggere il file system, quindi generiamo un set casuale)
-  const totalImages = 20; // imposta qui quanti file circa ci sono nella cartella
+  const totalImages = 20; // cambia in base al numero reale di file
 
   function getRandomImage() {
     const index = Math.floor(Math.random() * totalImages) + 1;
@@ -22,48 +19,57 @@ document.addEventListener('DOMContentLoaded', () => {
     img.style.transform = 'scale(0.5)';
     overlay.appendChild(img);
 
-    // effetto apparizione
+    // effetto di comparsa
     requestAnimationFrame(() => {
       img.style.opacity = '1';
       img.style.transform = 'scale(1)';
     });
 
-    // dissolvenza e rimozione dopo 1,5 sec
+    // scomparsa dopo 1s
     setTimeout(() => {
       img.style.opacity = '0';
       img.style.transform = 'scale(0.5)';
     }, 1000);
 
+    // rimuovi dopo 1.5s
     setTimeout(() => {
       overlay.removeChild(img);
     }, 1500);
   }
 
-  // 📱 Funzione comune per mouse e touch
-  function showRandomImage(e) {
-    let x, y;
-    if (e.touches && e.touches.length > 0) {
-      x = e.touches[0].clientX;
-      y = e.touches[0].clientY;
-    } else {
-      x = e.clientX;
-      y = e.clientY;
-    }
-
+  function showRandomImageAtPosition(x, y) {
     const src = getRandomImage();
     createImageElement(src, x - 100, y - 100);
   }
 
-  // 🖱️ PC
-  document.body.addEventListener('mousemove', showRandomImage);
+  // 🖱️ Evento mouse (desktop)
+  document.body.addEventListener('mousemove', (e) => {
+    showRandomImageAtPosition(e.clientX, e.clientY);
+  });
 
-  // 📱 Mobile / tablet
-  document.body.addEventListener('touchmove', showRandomImage);
+  // 📱 Evento touch (mobile)
+  document.body.addEventListener(
+    'touchstart',
+    (e) => {
+      const touch = e.touches[0];
+      showRandomImageAtPosition(touch.clientX, touch.clientY);
+    },
+    { passive: true }
+  );
 
-  // 🔙 Tap o click sullo sfondo → torna alla home
+  document.body.addEventListener(
+    'touchmove',
+    (e) => {
+      const touch = e.touches[0];
+      showRandomImageAtPosition(touch.clientX, touch.clientY);
+    },
+    { passive: true }
+  );
+
+  // 🔙 Tocca lo sfondo per tornare alla home
   document.body.addEventListener('click', (e) => {
     if (e.target === overlay) {
-      location.href = 'index.html';
+      window.location.href = 'index.html';
     }
   });
 });
