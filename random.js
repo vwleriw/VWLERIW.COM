@@ -10,7 +10,7 @@ const images = [
   'img/random_gallery/img5.jpg'
 ];
 
-// Crea immagine e la posiziona
+// Funzione per creare e mostrare un'immagine
 function createImageAt(x, y) {
   const randomIndex = Math.floor(Math.random() * images.length);
   const img = document.createElement('img');
@@ -39,25 +39,21 @@ document.addEventListener('mousemove', e => {
   createImageAt(e.clientX, e.clientY);
 });
 
-// Mobile: touchstart
-document.addEventListener('touchstart', e => {
-  if (e.touches.length > 0) {
-    const touch = e.touches[0];
+// Mobile: touchstart e touchmove
+function handleTouch(e) {
+  for (let i = 0; i < e.touches.length; i++) {
+    const touch = e.touches[i];
     createImageAt(touch.clientX, touch.clientY);
   }
-});
+}
 
-// Mobile: touchmove
-document.addEventListener('touchmove', e => {
-  if (e.touches.length > 0) {
-    const touch = e.touches[0];
-    createImageAt(touch.clientX, touch.clientY);
-  }
-}, { passive: true });
+document.addEventListener('touchstart', handleTouch, { passive: true });
+document.addEventListener('touchmove', handleTouch, { passive: true });
 
-// Click sullo sfondo torna alla home
-document.body.addEventListener('click', e => {
-  if (e.target === overlay) {
+// **Rimosso il click sullo sfondo su mobile**
+// Solo desktop mantiene il ritorno alla home
+document.addEventListener('click', e => {
+  if (window.innerWidth > 768 && e.target === overlay) {
     window.location.href = 'index.html';
   }
 });
