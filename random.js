@@ -1,57 +1,74 @@
 <script>
-  const overlay = document.getElementById('gallery-overlay');
+const overlay = document.getElementById('gallery-overlay');
 
-  // lista immagini (jpg o png, nomi liberi)
-  const imageFolder = 'img/random_gallery/';
-  const totalImages = 10; // metti qui il numero reale delle immagini nella cartella
-  const extensions = ['.jpg', '.png'];
+// Lista immagini (jpg o png, nomi liberi)
+const images = [
+  'img/random_gallery/img1.jpg',
+  'img/random_gallery/img2.jpg',
+  'img/random_gallery/img3.jpg',
+  'img/random_gallery/img4.jpg',
+  'img/random_gallery/img5.jpg',
+  'img/random_gallery/img6.jpg',
+  'img/random_gallery/img7.jpg',
+  'img/random_gallery/img8.jpg',
+  'img/random_gallery/img9.jpg',
+  'img/random_gallery/img10.jpg'
+];
 
-  function randomImage() {
-    const n = Math.floor(Math.random() * totalImages) + 1;
-    const ext = extensions[Math.floor(Math.random() * extensions.length)];
-    return `${imageFolder}img${n}${ext}`;
+// Funzione per creare un’immagine casuale
+function createRandomImage(x, y) {
+  const randomIndex = Math.floor(Math.random() * images.length);
+  const src = images[randomIndex];
+
+  const img = document.createElement('img');
+  img.src = src;
+
+  // Se mobile, centra l’immagine sullo schermo
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  if (isTouchDevice) {
+    x = window.innerWidth / 2 - 100; // centrata
+    y = window.innerHeight / 2 - 100;
+  } else {
+    x = x - 100;
+    y = y - 100;
   }
 
-  function createImage(x, y) {
-    const img = document.createElement('img');
-    img.src = randomImage();
-    img.style.left = (x - 100) + 'px';
-    img.style.top = (y - 100) + 'px';
-    img.style.opacity = '1';
-    img.style.transform = 'scale(1)';
-    overlay.appendChild(img);
+  img.style.left = x + 'px';
+  img.style.top = y + 'px';
+  img.style.opacity = '1';
+  img.style.transform = 'scale(1)';
+  overlay.appendChild(img);
 
-    setTimeout(() => {
-      img.style.opacity = '0';
-      img.style.transform = 'scale(0.5)';
-    }, 1000);
+  // Animazione scomparsa
+  setTimeout(() => {
+    img.style.opacity = '0';
+    img.style.transform = 'scale(0.5)';
+  }, 1000);
 
-    setTimeout(() => {
-      if (img.parentNode) overlay.removeChild(img);
-    }, 1500);
+  setTimeout(() => {
+    if (img.parentNode) overlay.removeChild(img);
+  }, 1500);
+}
+
+// Desktop: movimento mouse
+document.addEventListener('mousemove', e => {
+  createRandomImage(e.clientX, e.clientY);
+});
+
+// Mobile: tocco
+document.addEventListener('touchstart', e => {
+  createRandomImage();
+});
+
+// Mobile: scorrimento
+document.addEventListener('touchmove', e => {
+  createRandomImage();
+}, { passive: true });
+
+// Clic/tap sullo sfondo torna alla home
+document.body.addEventListener('click', e => {
+  if (e.target === overlay) {
+    window.location.href = 'index.html';
   }
-
-  // movimento mouse (desktop)
-  document.addEventListener('mousemove', e => {
-    createImage(e.clientX, e.clientY);
-  });
-
-  // touchmove (mobile)
-  document.addEventListener('touchmove', e => {
-    const t = e.touches[0];
-    createImage(t.clientX, t.clientY);
-  }, { passive: true });
-
-  // touchstart (tocco iniziale)
-  document.addEventListener('touchstart', e => {
-    const t = e.touches[0];
-    createImage(t.clientX, t.clientY);
-  }, { passive: true });
-
-  // clic/tap sullo sfondo torna alla home
-  document.body.addEventListener('click', e => {
-    if (e.target === overlay) {
-      window.location.href = 'index.html';
-    }
-  });
+});
 </script>
