@@ -6,7 +6,6 @@
   <title>Random Gallery</title>
   <link rel="stylesheet" href="style.css" />
   
-  <!-- Font Karrik -->
   <style>
     @font-face {
       font-family: 'Karrik';
@@ -29,7 +28,7 @@
       top: 0; left: 0;
       width: 100%;
       height: 100%;
-      background-color: transparent; /* l’immagine appare come elemento figlio */
+      background-color: transparent;
       overflow: hidden;
       z-index: 1;
     }
@@ -53,20 +52,18 @@
   <script>
     const overlay = document.getElementById('gallery-overlay');
 
-    // Lista immagini - attenzione nomi con estensione .png
-const images = [
-  'img/random_gallery/img1.jpg',
-  'img/random_gallery/img2.jpg',
-  'img/random_gallery/img3.jpg',
-  'img/random_gallery/img4.jpg',
-  'img/random_gallery/img5.jpg',
-  'img/random_gallery/img6.jpg',
-  'img/random_gallery/img7.jpg',
-  'img/random_gallery/img8.jpg',
-  'img/random_gallery/img9.jpg',
-  'img/random_gallery/img10.jpg'
-];
-
+    const images = [
+      'img/random_gallery/img1.jpg',
+      'img/random_gallery/img2.jpg',
+      'img/random_gallery/img3.jpg',
+      'img/random_gallery/img4.jpg',
+      'img/random_gallery/img5.jpg',
+      'img/random_gallery/img6.jpg',
+      'img/random_gallery/img7.jpg',
+      'img/random_gallery/img8.jpg',
+      'img/random_gallery/img9.jpg',
+      'img/random_gallery/img10.jpg'
+    ];
 
     function createImageElement(src, x, y) {
       const img = document.createElement('img');
@@ -78,36 +75,40 @@ const images = [
       return img;
     }
 
-    function showRandomImage(e) {
-      const x = e.clientX;
-      const y = e.clientY;
+    function showRandomImage(x, y) {
       const randomIndex = Math.floor(Math.random() * images.length);
       const src = images[randomIndex];
+      const img = createImageElement(src, x - 100, y - 100); // centrato
 
-      const img = createImageElement(src, x - 100, y - 100); // centrato circa (200x200 img)
       overlay.appendChild(img);
 
-      // Animazione scomparsa dopo 1.5 secondi
       setTimeout(() => {
         img.style.opacity = '0';
         img.style.transform = 'scale(0.5)';
       }, 1000);
 
-      // Rimuove l’immagine dal DOM dopo animazione
       setTimeout(() => {
-        overlay.removeChild(img);
+        if (img.parentNode) overlay.removeChild(img);
       }, 1500);
     }
 
-    // Al movimento mouse mostra immagine random
-    document.body.addEventListener('mousemove', showRandomImage);
-
-    // Click sull’esterno torna a index.html
-    document.body.addEventListener('click', (e) => {
-      if (e.target === overlay) {
-        location.href = 'index.html';
-      }
+    // Desktop
+    document.addEventListener('mousemove', e => {
+      showRandomImage(e.clientX, e.clientY);
     });
+
+    // Mobile
+    function handleTouch(e) {
+      e.preventDefault(); // blocca lo scroll
+      for (let i = 0; i < e.touches.length; i++) {
+        const touch = e.touches[i];
+        showRandomImage(touch.clientX, touch.clientY);
+      }
+    }
+
+    document.addEventListener('touchstart', handleTouch, { passive: false });
+    document.addEventListener('touchmove', handleTouch, { passive: false });
+
   </script>
 </body>
 </html>
