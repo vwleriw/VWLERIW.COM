@@ -1,42 +1,26 @@
 <script>
 const overlay = document.getElementById('gallery-overlay');
 
-// Lista immagini (jpg o png, nomi liberi)
+// Lista immagini
 const images = [
   'img/random_gallery/img1.jpg',
   'img/random_gallery/img2.jpg',
   'img/random_gallery/img3.jpg',
   'img/random_gallery/img4.jpg',
-  'img/random_gallery/img5.jpg',
-  'img/random_gallery/img6.jpg',
-  'img/random_gallery/img7.jpg',
-  'img/random_gallery/img8.jpg',
-  'img/random_gallery/img9.jpg',
-  'img/random_gallery/img10.jpg'
+  'img/random_gallery/img5.jpg'
 ];
 
-// Funzione per creare un’immagine casuale
-function createRandomImage(x, y) {
+// Crea immagine e la posiziona
+function createImageAt(x, y) {
   const randomIndex = Math.floor(Math.random() * images.length);
-  const src = images[randomIndex];
-
   const img = document.createElement('img');
-  img.src = src;
+  img.src = images[randomIndex];
 
-  // Se mobile, centra l’immagine sullo schermo
-  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  if (isTouchDevice) {
-    x = window.innerWidth / 2 - 100; // centrata
-    y = window.innerHeight / 2 - 100;
-  } else {
-    x = x - 100;
-    y = y - 100;
-  }
-
-  img.style.left = x + 'px';
-  img.style.top = y + 'px';
+  img.style.left = (x - 100) + 'px';
+  img.style.top = (y - 100) + 'px';
   img.style.opacity = '1';
   img.style.transform = 'scale(1)';
+
   overlay.appendChild(img);
 
   // Animazione scomparsa
@@ -50,22 +34,28 @@ function createRandomImage(x, y) {
   }, 1500);
 }
 
-// Desktop: movimento mouse
+// Desktop: mousemove
 document.addEventListener('mousemove', e => {
-  createRandomImage(e.clientX, e.clientY);
+  createImageAt(e.clientX, e.clientY);
 });
 
-// Mobile: tocco
+// Mobile: touchstart
 document.addEventListener('touchstart', e => {
-  createRandomImage();
+  if (e.touches.length > 0) {
+    const touch = e.touches[0];
+    createImageAt(touch.clientX, touch.clientY);
+  }
 });
 
-// Mobile: scorrimento
+// Mobile: touchmove
 document.addEventListener('touchmove', e => {
-  createRandomImage();
+  if (e.touches.length > 0) {
+    const touch = e.touches[0];
+    createImageAt(touch.clientX, touch.clientY);
+  }
 }, { passive: true });
 
-// Clic/tap sullo sfondo torna alla home
+// Click sullo sfondo torna alla home
 document.body.addEventListener('click', e => {
   if (e.target === overlay) {
     window.location.href = 'index.html';
