@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Miei Progetti</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Karrik -->
+  <style>
+    @font-face {
+      font-family: 'Karrik';
+      src: url('fonts/Karrik-Regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="img/tag_img.jpg" alt="Tag Image" class="main-img" />
+  </header>
+
+  <div class="bottone-wrapper">
+    <button onclick="window.open('https://www.artstation.com/vwleriw', '_blank')">ArtStation</button>
+    <button onclick="window.open('https://sketchfab.com/vwleriw#', '_blank')">SketchFab</button>
+    <button onclick="window.open('https://www.youtube.com/@vwleriw', '_blank')">YouTube</button>
+    <button onclick="window.open('https://opensea.io/0x82a5b4adbe64ea6a34b8c0f1e7315866679835bf', '_blank')">OpenSea</button>
+    <button onclick="window.open('https://https://linktr.ee/vwleriw', '_blank')">+</button>
+
+  </div>
+
+  <script>
+    // Blocca propagazione del click sui bottoni
+    document.querySelectorAll('button').forEach(button => {
+      button.addEventListener('click', e => {
+        e.stopPropagation();
+      });
+    });
+
+    // Torna alla home se si clicca fuori dai bottoni
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('button')) {
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+</body>
+</html>

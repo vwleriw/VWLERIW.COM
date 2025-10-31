@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VWLERIW</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Font Junicode Condensed -->
+  <style>
+    @font-face {
+      font-family: 'JunicodeCondensed';
+      src: url('fonts/Junicode-RegularCondensed.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="img/tag_img.jpg" alt="Tag Image" class="main-img" />
+  </header>
+
+  <div class="bottone-wrapper">
+    <button onclick="location.href='contact.html'">Contact</button>
+    <button onclick="location.href='my_projects.html'">My Projects</button>
+    <button onclick="location.href='random.html'">Random Gallery</button>
+    <button onclick="location.href='about.html'">About Me</button>
+  </div>
+
+  <script>
+    // Torna a index cliccando fuori dai bottoni (se vuoi)
+    document.body.addEventListener('click', (e) => {
+      if (!e.target.matches('button')) {
+        location.href = 'index.html';
+      }
+    });
+  </script>
+</body>
+</html>
