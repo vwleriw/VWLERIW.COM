@@ -1,0 +1,98 @@
+/* Reset base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Import font locale Junicode Condensed */
+@font-face {
+  font-family: 'JunicodeCondensed';
+  src: url('fonts/Junicode-RegularCondensed.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Corpo pagina */
+body {
+  font-family: 'JunicodeCondensed', serif;
+  background-color: #f9f9f9;
+  color: #000;
+  text-align: center;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Immagine principale */
+.main-img {
+  max-width: 10%;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+/* Contenitore bottoni in colonna */
+.bottone-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+/* Stile bottoni */
+button {
+  background: transparent;
+  border: none; /* Nessun bordo */
+  padding: 8px 30px;
+  font-size: 18px;
+  font-family: 'JunicodeCondensed', serif;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Linea sottile che appare in hover */
+button::after {
+  content: '';
+  position: absolute;
+  bottom: 4px; /* più vicino al testo */
+  left: 50%;
+  width: 0;
+  height: 1.5px;
+  background-color: currentColor; /* stesso colore del testo */
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+}
+
+/* Hover: mostra sottolineato */
+button:hover::after {
+  width: 80%;
+}
+
+/* Overlay galleria (sezione random) */
+#gallery-overlay {
+  position: fixed;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f9f9f9;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#gallery-overlay img {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}

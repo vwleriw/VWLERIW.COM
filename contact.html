@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <style>
+    @font-face {
+      font-family: 'JunicodeCondensed';
+      src: url('fonts/Junicode-RegularCondensed.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'JunicodeCondensed', serif;
+      background-color: #ffff01;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .main-img {
+      max-width: 10%;
+      height: auto;
+      margin-bottom: 40px;
+    }
+
+    .contact-text {
+      font-size: 1.6rem;
+      line-height: 1.8;
+    }
+
+    .email {
+      text-decoration: underline;
+      transition: color 0.3s ease;
+    }
+
+    .email:hover {
+      color: #595959;
+    }
+  </style>
+</head>
+<body>
+  <img src="img/tag_img.jpg" alt="Tag Image" class="main-img" />
+
+  <div class="contact-text">
+    Valeria Testa<br>
+    Designer, 3D Artist<br>
+    <span class="email">valeriatestavw@gmail.com</span>
+  </div>
+
+  <script>
+    // Cliccando ovunque si torna alla home
+    document.body.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
