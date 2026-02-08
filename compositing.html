@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];
+    w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P6W37X4S');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZH1NS2V3H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-7ZH1NS2V3H');
+  </script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compositing — Work in Progress</title>
+  <link rel="stylesheet" href="style.css" />
+
+  
+  <style>
+
+body {
+  background-color: #708090;
+}
+
+#gallery-overlay {
+  background-color: #708090;
+}
+
+
+
+    @font-face {
+      font-family: 'Karrik';
+      src: url('fonts/Karrik-Regular.ttf') format('truetype');
+    }
+
+    body {
+      background-color: #595959;
+      margin: 0;
+      height: 100vh;
+      overflow: hidden;
+      cursor: crosshair;
+      font-family: 'Karrik', sans-serif;
+    }
+
+    #gallery-overlay {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    #gallery-overlay img {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      pointer-events: none;
+      opacity: 0;
+      transform: scale(0.6);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6W37X4S"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div id="gallery-overlay"></div>
+
+  <script>
+    const overlay = document.getElementById('gallery-overlay');
+
+    const IMAGE_SRC = 'img/compositing/img_wip.jpg';
+
+    function showImage(x, y) {
+      const img = document.createElement('img');
+      img.src = IMAGE_SRC;
+      img.style.left = (x - 110) + 'px';
+      img.style.top = (y - 110) + 'px';
+
+      overlay.appendChild(img);
+
+      requestAnimationFrame(() => {
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+      });
+
+      setTimeout(() => {
+        img.style.opacity = '0';
+        img.style.transform = 'scale(0.6)';
+      }, 1200);
+
+      setTimeout(() => {
+        img.remove();
+      }, 1700);
+    }
+
+    // Desktop
+    document.addEventListener('mousemove', e => {
+      showImage(e.clientX, e.clientY);
+    });
+
+    // Mobile
+    function handleTouch(e) {
+      e.preventDefault();
+      for (const touch of e.touches) {
+        showImage(touch.clientX, touch.clientY);
+      }
+    }
+
+    document.addEventListener('touchstart', handleTouch, { passive: false });
+    document.addEventListener('touchmove', handleTouch, { passive: false });
+  </script>
+
+</body>
+</html>
