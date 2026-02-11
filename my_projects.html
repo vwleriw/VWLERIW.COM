@@ -16,79 +16,64 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-7ZH1NS2V3H');
 </script>
 
-  
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>projects</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>projects</title>
+<link rel="stylesheet" href="style.css" />
 
-  <!-- Font Karrik -->
-  <style>
-    @font-face {
-      font-family: 'Karrik';
-      src: url('fonts/Karrik-Regular.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
-    }
-  </style>
+<style>
+  @font-face {
+    font-family: 'Karrik';
+    src: url('fonts/Karrik-Regular.ttf') format('truetype');
+  }
+
+  /* Background SOLO per questa pagina */
+  body {
+    background: url('img/background/portfolio_background02.gif') center center / cover no-repeat fixed;
+  }
+</style>
+
 </head>
 
 <body>
 
-  <!-- Google Tag Manager (noscript) -->
+<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P6W37X4S"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  
-  <header>
-    <img src="img/tag_img.jpg" alt="Tag Image" class="main-img" />
-  </header>
 
-  <div class="bottone-wrapper">
-    <button onclick="window.open('https://www.artstation.com/vwleriw', '_blank')">3D / Renders</button>
-    <button onclick="window.open('https://sketchfab.com/vwleriw#', '_blank')">3D / Assets</button>
-    <button onclick="window.open('https://www.youtube.com/playlist?list=PLGD0qNSmPXUdfVoN8yn0-EJzwju5oGe_O', '_blank')">2D / Animation (Ai)</button>
-    <button onclick="window.location.href='compositing.html'">Compositing</button>
-    <button onclick="window.open('https://www.youtube.com/playlist?list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG', '_blank')">Videomaking</button>
-    <button onclick="window.open('https://www.behance.net/vwleriw', '_blank')">Photography</button>
-    <button onclick="window.open('https://www.youtube.com/@vwleriw', '_blank')">YouTube</button>
-    <button onclick="window.open('https://opensea.io/0x82a5b4adbe64ea6a34b8c0f1e7315866679835bf', '_blank')">NFT</button>
-    <button onclick="window.open('https://www.linktr.ee/vwleriw', '_blank')">+</button>
+<header>
+  <img src="img/tag_img.jpg" alt="Tag Image" class="main-img" />
+</header>
 
-  </div>
+<div class="bottone-wrapper">
+  <button onclick="window.open('https://www.artstation.com/vwleriw', '_blank')">3D / Renders</button>
+  <button onclick="window.open('https://sketchfab.com/vwleriw#', '_blank')">3D / Assets</button>
+  <button onclick="window.open('https://www.youtube.com/playlist?list=PLGD0qNSmPXUdfVoN8yn0-EJzwju5oGe_O', '_blank')">2D / Animation (Ai)</button>
+  <button onclick="window.location.href='compositing.html'">Compositing</button>
+  <button onclick="window.open('https://www.youtube.com/playlist?list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG', '_blank')">Videomaking</button>
+  <button onclick="window.open('https://www.behance.net/vwleriw', '_blank')">Photography</button>
+  <button onclick="window.open('https://www.youtube.com/@vwleriw', '_blank')">YouTube</button>
+  <button onclick="window.open('https://opensea.io/0x82a5b4adbe64ea6a34b8c0f1e7315866679835bf', '_blank')">NFT</button>
+  <button onclick="window.open('https://www.linktr.ee/vwleriw', '_blank')">+</button>
+</div>
 
-  <script>
-    // Blocca propagazione del click sui bottoni
-    document.querySelectorAll('button').forEach(button => {
-      button.addEventListener('click', e => {
-        e.stopPropagation();
-      });
+<script>
+  document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', e => {
+      e.stopPropagation();
     });
+  });
 
-    // Torna alla home se si clicca fuori dai bottoni
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('button')) {
-        window.location.href = 'index.html';
-      }
-    });
-  </script>
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('button')) {
+      window.location.href = 'index.html';
+    }
+  });
+</script>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
