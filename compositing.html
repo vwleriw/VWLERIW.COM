@@ -28,18 +28,7 @@
   <title>Compositing — Work in Progress</title>
   <link rel="stylesheet" href="style.css" />
 
-  
   <style>
-
-body {
-  background-color: #595959;
-}
-
-#gallery-overlay {
-  background-color: #595959;
-}
-
-
 
     @font-face {
       font-family: 'Karrik';
@@ -47,12 +36,18 @@ body {
     }
 
     body {
-      background-color: #595959;
       margin: 0;
       height: 100vh;
       overflow: hidden;
       cursor: crosshair;
       font-family: 'Karrik', sans-serif;
+
+      /* NUOVO BACKGROUND */
+      background-image: url('img/background/comp_bg.gif');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
     }
 
     #gallery-overlay {
@@ -60,6 +55,12 @@ body {
       inset: 0;
       overflow: hidden;
       z-index: 1;
+
+      /* stesso background per sicurezza */
+      background-image: url('img/background/comp_bg.gif');
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
 
     #gallery-overlay img {
@@ -72,6 +73,7 @@ body {
       transform: scale(0.6);
       transition: opacity 0.5s ease, transform 0.5s ease;
     }
+
   </style>
 </head>
 
@@ -133,4 +135,3 @@ body {
 
 </body>
 </html>
-
