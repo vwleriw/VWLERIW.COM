@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>3D Assets @VWLERIW</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background-color: #ffff01;
+      color: #000000 !important;
+      padding: 60px 20px 100px;
+      display: block;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .page-title {
+      font-size: 2.2rem;
+      margin-bottom: 50px;
+      color: #000000 !important;
+      -webkit-text-stroke: 0 !important;
+    }
+
+    .assets-grid {
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 45px;
+    }
+
+    .asset-item {
+      width: 100%;
+    }
+
+    .asset-viewer {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      border: none;
+      display: block;
+      background: #000000;
+    }
+
+    .asset-title {
+      margin-top: 15px;
+      font-size: 1.4rem;
+      color: #000000 !important;
+      -webkit-text-stroke: 0 !important;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 40px 15px 80px;
+      }
+
+      .page-title {
+        font-size: 1.8rem;
+        margin-bottom: 35px;
+      }
+
+      .assets-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .asset-title {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 class="page-title">3D Assets @VWLERIW</h1>
+
+  <main class="assets-grid">
+
+    <!-- 1. CROCODILE LEATHER BOOT -->
+    <div class="asset-item">
+
+      <iframe
+        class="asset-viewer"
+        src="https://sketchfab.com/models/733fdc48b29845a79585a30a52cb6990/embed"
+        title="Crocodile Leather Boot"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+
+      <div class="asset-title">
+        Crocodile Leather Boot
+      </div>
+
+    </div>
+
+
+    <!-- 2. JESTER -->
+    <div class="asset-item">
+
+      <iframe
+        class="asset-viewer"
+        src="https://sketchfab.com/models/fad49cc89db3425abd6d928d303be909/embed"
+        title="Jester"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+
+      <div class="asset-title">
+        Jester
+      </div>
+
+    </div>
+
+
+    <!-- 3. LEATHER HIGH HEEL BOOT -->
+    <div class="asset-item">
+
+      <iframe
+        class="asset-viewer"
+        src="https://sketchfab.com/models/e5f69733a55647d8afb3514e63745328/embed"
+        title="Leather High Heel Boot"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+
+      <div class="asset-title">
+        Leather High Heel Boot
+      </div>
+
+    </div>
+
+
+    <!-- 4. MOCASSINO -->
+    <div class="asset-item">
+
+      <iframe
+        class="asset-viewer"
+        src="https://sketchfab.com/models/e97a0beb379041589e2e6bd68feb27a9/embed"
+        title="Mocassino"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+
+      <div class="asset-title">
+        Mocassino
+      </div>
+
+    </div>
+
+
+    <!-- 5. SHOE DISPLAY -->
+    <div class="asset-item">
+
+      <iframe
+        class="asset-viewer"
+        src="https://sketchfab.com/models/02c324b7435f4395b684accd75a1219e/embed"
+        title="Shoe Display Set"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+
+      <div class="asset-title">
+        Shoe Display Set
+      </div>
+
+    </div>
+
+
+    <!-- 6. FAST FOOD TRAY -->
+    <div class="asset-item">
+
+      <iframe
+        class="asset-viewer"
+        src="https://sketchfab.com/models/1ab939d1d2254030ae1590f6b521bcc7/embed"
+        title="Fast Food Tray"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+
+      <div class="asset-title">
+        Fast Food Tray
+      </div>
+
+    </div>
+
+
+    <!-- 7. TABLE -->
+    <div class="asset-item">
+
+      <iframe
+        class="asset-viewer"
+        src="https://sketchfab.com/models/e511f9ecc8c044fcaa32b9e3fbfb7808/embed"
+        title="Table"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+
+      <div class="asset-title">
+        Table
+      </div>
+
+    </div>
+
+
+    <!-- 8. LOW POLY ARMCHAIR -->
+    <div class="asset-item">
+
+      <iframe
+        class="asset-viewer"
+        src="https://sketchfab.com/models/3e1921b6311c4459bdc92747719b5374/embed"
+        title="Low Poly Armchair"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen>
+      </iframe>
+
+      <div class="asset-title">
+        Low Poly Armchair
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <script>
+    document.body.addEventListener('click', function(e) {
+      if (e.target === document.body) {
+        window.location.href = 'index.html';
+      }
+    });
+  </script>
+
+</body>
+</html>
