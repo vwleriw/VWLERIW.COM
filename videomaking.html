@@ -3,813 +3,546 @@
 
 <head>
 
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js');var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-P6W37X4S');</script>
-<!-- End Google Tag Manager -->
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),
+      dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P6W37X4S');
+  </script>
+  <!-- End Google Tag Manager -->
 
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZH1NS2V3H"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-7ZH1NS2V3H"></script>
 
-<script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
 
-  window.dataLayer = window.dataLayer || [];
+    function gtag(){
+      dataLayer.push(arguments);
+    }
 
-  function gtag(){
-    dataLayer.push(arguments);
-  }
+    gtag('js', new Date());
+    gtag('config', 'G-7ZH1NS2V3H');
+  </script>
 
-  gtag('js', new Date());
 
-  gtag('config', 'G-7ZH1NS2V3H');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-</script>
+  <!-- Referer per YouTube -->
+  <meta name="referrer" content="origin" />
 
+  <title>Videomaking</title>
 
-<meta charset="UTF-8" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
 
-<!-- Referer per YouTube -->
-<meta name="referrer" content="origin" />
+    @font-face {
+      font-family: 'JunicodeCondensed';
+      src: url('fonts/Junicode-RegularCondensed.ttf') format('truetype');
+    }
 
-<title>Videomaking</title>
+    * {
+      box-sizing: border-box;
+    }
 
-
-<style>
-
-
-  @font-face {
-
-    font-family: 'JunicodeCondensed';
-
-    src: url('fonts/Junicode-RegularCondensed.ttf')
-         format('truetype');
-
-  }
-
-
-  * {
-
-    box-sizing: border-box;
-
-  }
-
-
-  html {
-
-    margin: 0;
-
-    padding: 0;
-
-    scroll-behavior: smooth;
-
-  }
-
-
-  body {
-
-    margin: 0;
-
-    padding: 60px 20px 100px;
-
-    font-family: 'JunicodeCondensed', serif;
-
-    background-color: #ffff01;
-
-    overflow-x: hidden;
-
-    user-select: none;
-
-  }
-
-
-
-  /* ==================================================
-     ANTEPRIMA
-     ================================================== */
-
-  .preview {
-
-    width: 100%;
-
-    max-width: 1100px;
-
-    margin: 0 auto 100px;
-
-    text-align: center;
-
-  }
-
-
-  .preview-title {
-
-    color: #000;
-
-    font-size: 1.8rem;
-
-    margin-bottom: 25px;
-
-  }
-
-
-  /* ==================================================
-     GRIGLIA ANTEPRIME
-     ================================================== */
-
-  .preview-grid {
-
-    width: 100%;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    gap: 15px;
-
-  }
-
-
-  .preview-item {
-
-    position: relative;
-
-    aspect-ratio: 16 / 9;
-
-    background-color: #000;
-
-    background-size: cover;
-
-    background-position: center;
-
-    border-radius: 8px;
-
-    overflow: hidden;
-
-    cursor: pointer;
-
-    box-shadow:
-      0 0 15px rgba(0,0,0,0.25);
-
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-
-  }
-
-
-  .preview-item:hover {
-
-    transform: scale(1.03);
-
-    box-shadow:
-      0 0 25px rgba(0,0,0,0.4);
-
-  }
-
-
-  /* ==================================================
-     ANTEPRIMA INSTAGRAM
-     ================================================== */
-
-  .instagram-preview-frame {
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    border: none;
-
-    pointer-events: none;
-
-    background: #000;
-
-  }
-
-
-  /* ==================================================
-     PLAY MINIATURA
-     ================================================== */
-
-  .preview-play {
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 45px;
-    height: 45px;
-
-    background: rgba(0,0,0,0.65);
-
-    border-radius: 50%;
-
-    z-index: 3;
-
-  }
-
-
-  .preview-play::before {
-
-    content: '';
-
-    position: absolute;
-
-    left: 17px;
-    top: 11px;
-
-    width: 0;
-    height: 0;
-
-    border-left: 15px solid white;
-
-    border-top: 11px solid transparent;
-
-    border-bottom: 11px solid transparent;
-
-  }
-
-
-
-  /* ==================================================
-     GALLERIA VIDEO
-     ================================================== */
-
-  .video-gallery {
-
-    width: 100%;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 90px;
-
-  }
-
-
-  /* ==================================================
-     SINGOLO VIDEO
-     ================================================== */
-
-  .video-item {
-
-    width: 80vw;
-
-    max-width: 960px;
-
-    scroll-margin-top: 40px;
-
-  }
-
-
-  /* ==================================================
-     MINIATURA VIDEO
-     ================================================== */
-
-  .video-thumbnail {
-
-    position: relative;
-
-    width: 100%;
-
-    aspect-ratio: 16 / 9;
-
-    background-color: #000;
-
-    background-size: cover;
-
-    background-position: center;
-
-    border-radius: 12px;
-
-    box-shadow:
-      0 0 25px rgba(0,0,0,0.3);
-
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-
-    cursor: pointer;
-
-    overflow: hidden;
-
-  }
-
-
-  .video-thumbnail:hover {
-
-    transform: scale(1.02);
-
-    box-shadow:
-      0 0 35px rgba(0,0,0,0.4);
-
-  }
-
-
-  /* ==================================================
-     IFRAME INSTAGRAM NELLA MINIATURA
-     ================================================== */
-
-  .instagram-thumbnail-frame {
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    border: none;
-
-    pointer-events: none;
-
-    background: #000;
-
-  }
-
-
-  /* ==================================================
-     PLAY GRANDE
-     ================================================== */
-
-  .play-button {
-
-    position: absolute;
-
-    top: 50%;
-    left: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 90px;
-    height: 90px;
-
-    background: rgba(0,0,0,0.6);
-
-    border-radius: 50%;
-
-    z-index: 3;
-
-  }
-
-
-  .play-button::before {
-
-    content: '';
-
-    position: absolute;
-
-    left: 34px;
-    top: 22px;
-
-    width: 0;
-    height: 0;
-
-    border-left: 30px solid white;
-
-    border-top: 22px solid transparent;
-
-    border-bottom: 22px solid transparent;
-
-  }
-
-
-
-  /* ==================================================
-     TITOLO
-     ================================================== */
-
-  .video-title {
-
-    margin-top: 20px;
-
-    text-align: center;
-
-    color: #000;
-
-    font-size: 1.4rem;
-
-    line-height: 1.4;
-
-  }
-
-
-
-  /* ==================================================
-     OVERLAY
-     ================================================== */
-
-  .video-overlay {
-
-    position: fixed;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background: rgba(0,0,0,0.85);
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    z-index: 10;
-
-    visibility: hidden;
-
-    opacity: 0;
-
-    transition:
-      opacity 0.4s ease,
-      visibility 0.4s ease;
-
-  }
-
-
-  .video-overlay.active {
-
-    visibility: visible;
-
-    opacity: 1;
-
-  }
-
-
-  /* ==================================================
-     IFRAME OVERLAY
-     ================================================== */
-
-  .video-overlay iframe {
-
-    width: 80vw;
-
-    max-width: 960px;
-
-    aspect-ratio: 16 / 9;
-
-    border: none;
-
-    border-radius: 10px;
-
-    background: #000;
-
-  }
-
-
-
-  /* ==================================================
-     CHIUDI
-     ================================================== */
-
-  .close-btn {
-
-    position: absolute;
-
-    top: 30px;
-    right: 40px;
-
-    font-size: 2rem;
-
-    color: white;
-
-    background: transparent;
-
-    border: none;
-
-    cursor: pointer;
-
-    z-index: 20;
-
-  }
-
-
-  .close-btn:hover {
-
-    color: #ffff01;
-
-  }
-
-
-
-  /* ==================================================
-     MOBILE
-     ================================================== */
-
-  @media (max-width: 768px) {
+    html {
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
 
     body {
-
-      padding:
-        35px 15px 70px;
-
+      margin: 0;
+      padding: 60px 20px 100px;
+      font-family: 'JunicodeCondensed', serif;
+      background-color: #ffff01;
+      overflow-x: hidden;
+      user-select: none;
     }
 
+
+    /* ==================================================
+       ANTEPRIMA
+       ================================================== */
 
     .preview {
-
-      margin-bottom: 70px;
-
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto 100px;
+      text-align: center;
     }
-
 
     .preview-title {
-
-      font-size: 1.4rem;
-
+      color: #000;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
     }
 
+
+    /* ==================================================
+       GRIGLIA ANTEPRIME
+       ================================================== */
 
     .preview-grid {
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 10px;
-
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
     }
 
+    .preview-item {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background-color: #000;
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0,0,0,0.25);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+    }
+
+    .preview-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(0,0,0,0.4);
+    }
+
+
+    /* ==================================================
+       ANTEPRIMA INSTAGRAM
+       ================================================== */
+
+    .instagram-preview-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+      background: #000;
+    }
+
+
+    /* ==================================================
+       PLAY MINIATURA
+       ================================================== */
 
     .preview-play {
-
-      width: 35px;
-      height: 35px;
-
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 45px;
+      height: 45px;
+      background: rgba(0,0,0,0.65);
+      border-radius: 50%;
+      z-index: 3;
     }
-
 
     .preview-play::before {
-
-      left: 13px;
-      top: 8px;
-
-      border-left-width: 12px;
-
-      border-top-width: 9px;
-
-      border-bottom-width: 9px;
-
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 11px;
+      width: 0;
+      height: 0;
+      border-left: 15px solid white;
+      border-top: 11px solid transparent;
+      border-bottom: 11px solid transparent;
     }
 
+
+    /* ==================================================
+       GALLERIA VIDEO
+       ================================================== */
 
     .video-gallery {
-
-      gap: 55px;
-
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 90px;
     }
 
+
+    /* ==================================================
+       SINGOLO VIDEO
+       ================================================== */
 
     .video-item {
-
-      width: 92vw;
-
+      width: 80vw;
+      max-width: 960px;
+      scroll-margin-top: 40px;
     }
 
+
+    /* ==================================================
+       MINIATURA VIDEO
+       ================================================== */
+
+    .video-thumbnail {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: #000;
+      background-size: cover;
+      background-position: center;
+      border-radius: 12px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.3);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      cursor: pointer;
+      overflow: hidden;
+    }
+
+    .video-thumbnail:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 35px rgba(0,0,0,0.4);
+    }
+
+
+    /* ==================================================
+       IFRAME INSTAGRAM NELLA MINIATURA
+       ================================================== */
+
+    .instagram-thumbnail-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+      background: #000;
+    }
+
+
+    /* ==================================================
+       PLAY GRANDE
+       ================================================== */
 
     .play-button {
-
-      width: 65px;
-      height: 65px;
-
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90px;
+      height: 90px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 50%;
+      z-index: 3;
     }
-
 
     .play-button::before {
-
-      left: 25px;
-      top: 16px;
-
-      border-left-width: 22px;
-
-      border-top-width: 16px;
-
-      border-bottom-width: 16px;
-
+      content: '';
+      position: absolute;
+      left: 34px;
+      top: 22px;
+      width: 0;
+      height: 0;
+      border-left: 30px solid white;
+      border-top: 22px solid transparent;
+      border-bottom: 22px solid transparent;
     }
 
+
+    /* ==================================================
+       TITOLO
+       ================================================== */
 
     .video-title {
-
-      font-size: 1.2rem;
-
+      margin-top: 20px;
+      text-align: center;
+      color: #000;
+      font-size: 1.4rem;
+      line-height: 1.4;
     }
 
+
+    /* ==================================================
+       OVERLAY
+       ================================================== */
+
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      visibility: hidden;
+      opacity: 0;
+      transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+    }
+
+    .video-overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+    /* ==================================================
+       IFRAME OVERLAY
+       ================================================== */
 
     .video-overlay iframe {
-
-      width: 92vw;
-
+      width: 80vw;
+      max-width: 960px;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 10px;
+      background: #000;
     }
 
+
+    /* ==================================================
+       CHIUDI
+       ================================================== */
 
     .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 2rem;
+      color: white;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 20;
+    }
 
-      top: 20px;
-      right: 20px;
+    .close-btn:hover {
+      color: #ffff01;
+    }
+
+
+    /* ==================================================
+       MOBILE
+       ================================================== */
+
+    @media (max-width: 768px) {
+
+      body {
+        padding: 35px 15px 70px;
+      }
+
+      .preview {
+        margin-bottom: 70px;
+      }
+
+      .preview-title {
+        font-size: 1.4rem;
+      }
+
+      .preview-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .preview-play {
+        width: 35px;
+        height: 35px;
+      }
+
+      .preview-play::before {
+        left: 13px;
+        top: 8px;
+        border-left-width: 12px;
+        border-top-width: 9px;
+        border-bottom-width: 9px;
+      }
+
+      .video-gallery {
+        gap: 55px;
+      }
+
+      .video-item {
+        width: 92vw;
+      }
+
+      .play-button {
+        width: 65px;
+        height: 65px;
+      }
+
+      .play-button::before {
+        left: 25px;
+        top: 16px;
+        border-left-width: 22px;
+        border-top-width: 16px;
+        border-bottom-width: 16px;
+      }
+
+      .video-title {
+        font-size: 1.2rem;
+      }
+
+      .video-overlay iframe {
+        width: 92vw;
+      }
+
+      .close-btn {
+        top: 20px;
+        right: 20px;
+      }
 
     }
 
-  }
-
-</style>
+  </style>
 
 </head>
-
 
 
 <body>
 
 
-<!-- Google Tag Manager (noscript) -->
-
-<noscript>
-
-  <iframe
-    src="https://www.googletagmanager.com/ns.html?id=GTM-P6W37X4S"
-    height="0"
-    width="0"
-    style="display:none;visibility:hidden">
-  </iframe>
-
-</noscript>
-
-<!-- End Google Tag Manager (noscript) -->
-
-
-
-<!-- ==================================================
-     ANTEPRIMA
-     ================================================== -->
-
-<div class="preview">
-
-
-  <div class="preview-title">
-
-    Videomaking @VWLERIW
-
-  </div>
-
-
-  <div class="preview-grid">
-
-
-    <!-- ANTEPRIMA 1 -->
-
-    <div
-      class="preview-item"
-      data-target="video1">
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-    <!-- ANTEPRIMA 2 -->
-
-    <div
-      class="preview-item"
-      data-target="video2">
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-    <!-- ANTEPRIMA 3 - INSTAGRAM -->
-
-    <div
-      class="preview-item"
-      data-target="video3">
-
-      <iframe
-        class="instagram-preview-frame"
-        src="https://www.instagram.com/reel/DPeSAyzjKzg/embed/"
-        loading="lazy"
-        scrolling="no">
-      </iframe>
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-    <!-- ANTEPRIMA 4 -->
-
-    <div
-      class="preview-item"
-      data-target="video4">
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-    <!-- ANTEPRIMA 5 -->
-
-    <div
-      class="preview-item"
-      data-target="video5">
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-    <!-- ANTEPRIMA 6 -->
-
-    <div
-      class="preview-item"
-      data-target="video6">
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-    <!-- ANTEPRIMA 7 -->
-
-    <div
-      class="preview-item"
-      data-target="video7">
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-    <!-- ANTEPRIMA 8 -->
-
-    <div
-      class="preview-item"
-      data-target="video8">
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-    <!-- ANTEPRIMA 9 -->
-
-    <div
-      class="preview-item"
-      data-target="video9">
-
-      <div class="preview-play"></div>
-
-    </div>
-
-
-  </div>
-
-</div>
-
-
-
-<!-- ==================================================
-     GALLERIA VIDEO
-     ================================================== -->
-
-<div class="video-gallery">
-
+  <!-- Google Tag Manager (noscript) -->
+
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-P6W37X4S"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+
+  <!-- End Google Tag Manager (noscript) -->
 
 
   <!-- ==================================================
-       VIDEO 1
+       ANTEPRIMA
        ================================================== -->
 
-  <div class="video-item" id="video1">
+  <div class="preview">
 
-    <div
-      class="video-thumbnail"
-      data-url="https://www.youtube.com/watch?v=m2zdpQjnO7M&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=1">
-
-      <div class="play-button"></div>
-
+    <div class="preview-title">
+      Videomaking @VWLERIW
     </div>
 
-    <div class="video-title">
 
-      
-Without a Strategy - boyrebecca // A short story by Vwleriw & Rebecca Griffiths // REVENGE + Kiss
+    <div class="preview-grid">
+
+
+      <!-- ANTEPRIMA 1 -->
+
+      <div
+        class="preview-item"
+        data-target="video1">
+
+        <div class="preview-play"></div>
+
+      </div>
+
+
+      <!-- ANTEPRIMA 2 -->
+
+      <div
+        class="preview-item"
+        data-target="video2">
+
+        <div class="preview-play"></div>
+
+      </div>
+
+
+      <!-- ANTEPRIMA 3 - BLOWNBACK MOUNTAIN -->
+
+      <div
+        class="preview-item"
+        data-target="video3"
+        style="background-image: url('img/giu.jpg');">
+
+        <div class="preview-play"></div>
+
+      </div>
+
+
+      <!-- ANTEPRIMA 4 -->
+
+      <div
+        class="preview-item"
+        data-target="video4">
+
+        <div class="preview-play"></div>
+
+      </div>
+
+
+      <!-- ANTEPRIMA 5 -->
+
+      <div
+        class="preview-item"
+        data-target="video5">
+
+        <div class="preview-play"></div>
+
+      </div>
+
+
+      <!-- ANTEPRIMA 6 -->
+
+      <div
+        class="preview-item"
+        data-target="video6">
+
+        <div class="preview-play"></div>
+
+      </div>
+
+
+      <!-- ANTEPRIMA 7 -->
+
+      <div
+        class="preview-item"
+        data-target="video7">
+
+        <div class="preview-play"></div>
+
+      </div>
+
+
+      <!-- ANTEPRIMA 8 -->
+
+      <div
+        class="preview-item"
+        data-target="video8">
+
+        <div class="preview-play"></div>
+
+      </div>
+
+
+      <!-- ANTEPRIMA 9 -->
+
+      <div
+        class="preview-item"
+        data-target="video9">
+
+        <div class="preview-play"></div>
+
+      </div>
+
 
     </div>
 
@@ -818,660 +551,654 @@ Without a Strategy - boyrebecca // A short story by Vwleriw & Rebecca Griffiths 
 
 
   <!-- ==================================================
-       VIDEO 2
+       GALLERIA VIDEO
        ================================================== -->
 
-  <div class="video-item" id="video2">
+  <div class="video-gallery">
 
-    <div
-      class="video-thumbnail"
-      data-url="https://www.youtube.com/watch?v=DUCn8dCt_z8&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=2">
 
-      <div class="play-button"></div>
+
+    <!-- ==================================================
+         VIDEO 1
+         ================================================== -->
+
+    <div class="video-item" id="video1">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.youtube.com/watch?v=m2zdpQjnO7M&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=1">
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        Without a Strategy - boyrebecca // A short story by Vwleriw & Rebecca Griffiths // REVENGE + Kiss
+      </div>
 
     </div>
 
-    <div class="video-title">
 
-      
-Adria The Reject - Come Jack a Londra (Visual Video)
+
+    <!-- ==================================================
+         VIDEO 2
+         ================================================== -->
+
+    <div class="video-item" id="video2">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.youtube.com/watch?v=DUCn8dCt_z8&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=2">
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        Adria The Reject - Come Jack a Londra (Visual Video)
+      </div>
 
     </div>
+
+
+
+    <!-- ==================================================
+         VIDEO 3 - INSTAGRAM
+         ================================================== -->
+
+    <div class="video-item" id="video3">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.instagram.com/reel/DPeSAyzjKzg/?stkn=aHM1NXZvczNtMHBp">
+
+        <iframe
+          class="instagram-thumbnail-frame"
+          src="https://www.instagram.com/reel/DPeSAyzjKzg/embed/"
+          loading="lazy"
+          scrolling="no">
+        </iframe>
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        BLOWNBACK MOUNTAIN @haus of giu
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         VIDEO 4
+         ================================================== -->
+
+    <div class="video-item" id="video4">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.youtube.com/watch?v=8h7h7EYgvpM&list=RD8h7h7EYgvpM&start_radio=1">
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        Fondo - Sacrasindrome feat sonofranco
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         VIDEO 5
+         ================================================== -->
+
+    <div class="video-item" id="video5">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.youtube.com/watch?v=i3RvUJwfxjA&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=4&t=57s">
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        Fino al cuore
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         VIDEO 6
+         ================================================== -->
+
+    <div class="video-item" id="video6">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.youtube.com/watch?v=uLlLpXjeoGE&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=3">
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        Blue Monday - SindroMe prod. Zibba
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         VIDEO 7
+         ================================================== -->
+
+    <div class="video-item" id="video7">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.youtube.com/watch?v=4-v_B71obT8&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=5">
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        Adria The Reject - Mr. Positivo Part 2 (Official Video)
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         VIDEO 8
+         ================================================== -->
+
+    <div class="video-item" id="video8">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.youtube.com/watch?v=MgX_d4NNF_A&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=6">
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        Adria The Reject - Crazy Times (prod. Il Matto) (Official Video)
+      </div>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         VIDEO 9
+         ================================================== -->
+
+    <div class="video-item" id="video9">
+
+      <div
+        class="video-thumbnail"
+        data-url="https://www.youtube.com/watch?v=mse-QZJ9bdk&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=7">
+
+        <div class="play-button"></div>
+
+      </div>
+
+      <div class="video-title">
+        Waxkillers - Great Horn (feat. Adria The Reject) (Official Video)
+      </div>
+
+    </div>
+
 
   </div>
 
 
 
   <!-- ==================================================
-       VIDEO 3 - INSTAGRAM
+       OVERLAY
        ================================================== -->
 
-  <div class="video-item" id="video3">
+  <div
+    class="video-overlay"
+    id="videoOverlay">
 
-    <div
-      class="video-thumbnail"
-      data-url="https://www.instagram.com/reel/DPeSAyzjKzg/?stkn=aHM1NXZvczNtMHBp">
+    <button
+      class="close-btn"
+      id="closeBtn">
 
-      <iframe
-        class="instagram-thumbnail-frame"
-        src="https://www.instagram.com/reel/DPeSAyzjKzg/embed/"
-        loading="lazy"
-        scrolling="no">
-      </iframe>
+      ✕
 
-      <div class="play-button"></div>
+    </button>
 
-    </div>
 
-    <div class="video-title">
+    <iframe
+      id="videoIframe"
+      src=""
+      referrerpolicy="origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
 
-   BLOWNBACK MOUNTAIN @haus of giu
-
-    </div>
 
   </div>
 
 
 
-  <!-- ==================================================
-       VIDEO 4
-       ================================================== -->
+  <script>
 
-  <div class="video-item" id="video4">
 
-    <div
-      class="video-thumbnail"
-      data-url="https://www.youtube.com/watch?v=8h7h7EYgvpM&list=RD8h7h7EYgvpM&start_radio=1">
+    /* ==================================================
+       ELEMENTI
+       ================================================== */
 
-      <div class="play-button"></div>
+    const thumbnails =
+      document.querySelectorAll('.video-thumbnail');
 
-    </div>
 
-    <div class="video-title">
+    const previewItems =
+      document.querySelectorAll('.preview-item');
 
-      Fondo - Sacrasindrome feat sonofranco
 
-    </div>
+    const videoOverlay =
+      document.getElementById('videoOverlay');
 
-  </div>
 
+    const videoIframe =
+      document.getElementById('videoIframe');
 
 
-  <!-- ==================================================
-       VIDEO 5
-       ================================================== -->
+    const closeBtn =
+      document.getElementById('closeBtn');
 
-  <div class="video-item" id="video5">
 
-    <div
-      class="video-thumbnail"
-      data-url="https://www.youtube.com/watch?v=i3RvUJwfxjA&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=4&t=57s">
 
-      <div class="play-button"></div>
+    /* ==================================================
+       ESTRAI ID YOUTUBE
+       ================================================== */
 
-    </div>
+    function getYouTubeID(url) {
 
-    <div class="video-title">
+      try {
 
-  Fino al cuore
+        const parsedURL =
+          new URL(url);
 
-    </div>
 
-  </div>
+        if (
+          parsedURL.hostname.includes('youtube.com')
+        ) {
 
+          return parsedURL.searchParams.get('v');
 
+        }
 
-  <!-- ==================================================
-       VIDEO 6
-       ================================================== -->
 
-  <div class="video-item" id="video6">
+        if (
+          parsedURL.hostname === 'youtu.be'
+        ) {
 
-    <div
-      class="video-thumbnail"
-      data-url="https://www.youtube.com/watch?v=uLlLpXjeoGE&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=3">
-
-      <div class="play-button"></div>
-
-    </div>
-
-    <div class="video-title">
-
-
-Blue Monday - SindroMe prod. Zibba
-
-    </div>
-
-  </div>
-
-
-
-  <!-- ==================================================
-       VIDEO 7
-       ================================================== -->
-
-  <div class="video-item" id="video7">
-
-    <div
-      class="video-thumbnail"
-      data-url="https://www.youtube.com/watch?v=4-v_B71obT8&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=5">
-
-      <div class="play-button"></div>
-
-    </div>
-
-    <div class="video-title">
-
-  
-Adria The Reject - Mr. Positivo Part 2 (Official Video)
-
-    </div>
-
-  </div>
-
-
-
-  <!-- ==================================================
-       VIDEO 8
-       ================================================== -->
-
-  <div class="video-item" id="video8">
-
-    <div
-      class="video-thumbnail"
-      data-url="https://www.youtube.com/watch?v=MgX_d4NNF_A&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=6">
-
-      <div class="play-button"></div>
-
-    </div>
-
-    <div class="video-title">
-
-
-Adria The Reject - Crazy Times (prod. Il Matto) (Official Video)
-
-    </div>
-
-  </div>
-
-
-
-  <!-- ==================================================
-       VIDEO 9
-       ================================================== -->
-
-  <div class="video-item" id="video9">
-
-    <div
-      class="video-thumbnail"
-      data-url="https://www.youtube.com/watch?v=mse-QZJ9bdk&list=PLGD0qNSmPXUcz--y7p5nEVfAyx21rghRG&index=7">
-
-      <div class="play-button"></div>
-
-    </div>
-
-    <div class="video-title">
-
-
-Waxkillers - Great Horn (feat. Adria The Reject) (Official Video)
-
-    </div>
-
-  </div>
-
-
-</div>
-
-
-
-<!-- ==================================================
-     OVERLAY
-     ================================================== -->
-
-<div
-  class="video-overlay"
-  id="videoOverlay">
-
-
-  <button
-    class="close-btn"
-    id="closeBtn">
-
-    ✕
-
-  </button>
-
-
-  <iframe
-    id="videoIframe"
-    src=""
-    referrerpolicy="origin"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen>
-  </iframe>
-
-
-</div>
-
-
-
-<script>
-
-
-  /* ==================================================
-     ELEMENTI
-     ================================================== */
-
-  const thumbnails =
-    document.querySelectorAll('.video-thumbnail');
-
-
-  const previewItems =
-    document.querySelectorAll('.preview-item');
-
-
-  const videoOverlay =
-    document.getElementById('videoOverlay');
-
-
-  const videoIframe =
-    document.getElementById('videoIframe');
-
-
-  const closeBtn =
-    document.getElementById('closeBtn');
-
-
-
-  /* ==================================================
-     ESTRAI ID YOUTUBE
-     ================================================== */
-
-  function getYouTubeID(url) {
-
-    try {
-
-      const parsedURL =
-        new URL(url);
-
-
-      if (
-        parsedURL.hostname.includes('youtube.com')
-      ) {
-
-        return parsedURL.searchParams.get('v');
-
-      }
-
-
-      if (
-        parsedURL.hostname === 'youtu.be'
-      ) {
-
-        return parsedURL.pathname.substring(1);
-
-      }
-
-    }
-
-    catch (error) {
-
-      return null;
-
-    }
-
-
-    return null;
-
-  }
-
-
-
-  /* ==================================================
-     ESTRAI ID INSTAGRAM
-     ================================================== */
-
-  function getInstagramID(url) {
-
-    try {
-
-      const parsedURL =
-        new URL(url);
-
-
-      if (
-        parsedURL.hostname.includes('instagram.com')
-      ) {
-
-        const match =
-          parsedURL.pathname.match(
-            /\/reel\/([^\/]+)/
-          );
-
-
-        if (match) {
-
-          return match[1];
+          return parsedURL.pathname.substring(1);
 
         }
 
       }
 
-    }
+      catch (error) {
 
-    catch (error) {
+        return null;
+
+      }
+
 
       return null;
 
     }
 
 
-    return null;
 
-  }
+    /* ==================================================
+       ESTRAI ID INSTAGRAM
+       ================================================== */
+
+    function getInstagramID(url) {
+
+      try {
+
+        const parsedURL =
+          new URL(url);
 
 
+        if (
+          parsedURL.hostname.includes('instagram.com')
+        ) {
 
-  /* ==================================================
-     CREA THUMBNAIL E CLICK
-     ================================================== */
+          const match =
+            parsedURL.pathname.match(
+              /\/(?:reel|p)\/([^/]+)/
+            );
 
-  thumbnails.forEach((thumbnail, index) => {
+
+          if (match) {
+
+            return match[1];
+
+          }
+
+        }
+
+      }
+
+      catch (error) {
+
+        return null;
+
+      }
 
 
-    const videoURL =
-      thumbnail.dataset.url;
+      return null;
+
+    }
 
 
 
     /* ==================================================
-       YOUTUBE
+       CREA THUMBNAIL E CLICK
        ================================================== */
 
-    const videoID =
-      getYouTubeID(videoURL);
+    thumbnails.forEach((thumbnail, index) => {
 
 
-    if (videoID) {
+      const videoURL =
+        thumbnail.dataset.url;
 
 
-      const maxRes =
-        `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`;
+
+      /* ==================================================
+         YOUTUBE
+         ================================================== */
+
+      const videoID =
+        getYouTubeID(videoURL);
 
 
-      const hq =
-        `https://img.youtube.com/vi/${videoID}/hqdefault.jpg`;
+      if (videoID) {
 
 
-      const testImg =
-        new Image();
+        const maxRes =
+          `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`;
 
 
-      testImg.onload = () => {
+        const hq =
+          `https://img.youtube.com/vi/${videoID}/hqdefault.jpg`;
 
-        if (
-          testImg.naturalWidth <= 120
-        ) {
+
+        const testImg =
+          new Image();
+
+
+        testImg.onload = () => {
+
+          if (
+            testImg.naturalWidth <= 120
+          ) {
+
+            thumbnail.style.backgroundImage =
+              `url('${hq}')`;
+
+          }
+
+          else {
+
+            thumbnail.style.backgroundImage =
+              `url('${maxRes}')`;
+
+          }
+
+        };
+
+
+        testImg.onerror = () => {
 
           thumbnail.style.backgroundImage =
             `url('${hq}')`;
 
+        };
+
+
+        testImg.src =
+          maxRes;
+
+
+
+        /* ==================================================
+           ANTEPRIMA YOUTUBE
+           ================================================== */
+
+        if (previewItems[index]) {
+
+          previewItems[index].style.backgroundImage =
+            `url('${hq}')`;
+
         }
 
-        else {
-
-          thumbnail.style.backgroundImage =
-            `url('${maxRes}')`;
-
-        }
-
-      };
 
 
-      testImg.onerror = () => {
+        /* ==================================================
+           CLICK YOUTUBE
+           ================================================== */
 
-        thumbnail.style.backgroundImage =
-          `url('${hq}')`;
+        thumbnail.addEventListener(
+          'click',
+          () => {
 
-      };
-
-
-      testImg.src =
-        maxRes;
+            const embedURL =
+              `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0&origin=https%3A%2F%2Fvwleriw.github.io`;
 
 
+            videoIframe.src =
+              embedURL;
 
-      /* ==================================================
-         ANTEPRIMA YOUTUBE
-         ================================================== */
 
-      if (previewItems[index]) {
+            videoOverlay.classList.add(
+              'active'
+            );
 
-        previewItems[index].style.backgroundImage =
-          `url('${hq}')`;
+          }
+        );
+
+
+        return;
 
       }
 
 
 
       /* ==================================================
-         CLICK YOUTUBE
+         INSTAGRAM
          ================================================== */
 
-      thumbnail.addEventListener(
+      const instagramID =
+        getInstagramID(videoURL);
+
+
+      if (instagramID) {
+
+
+        /* ==================================================
+           CLICK INSTAGRAM
+           ================================================== */
+
+        thumbnail.addEventListener(
+          'click',
+          () => {
+
+            videoIframe.src =
+              `https://www.instagram.com/reel/${instagramID}/embed/`;
+
+
+            videoOverlay.classList.add(
+              'active'
+            );
+
+          }
+        );
+
+      }
+
+    });
+
+
+
+    /* ==================================================
+       CLICK ANTEPRIME
+       ================================================== */
+
+    previewItems.forEach(item => {
+
+      item.addEventListener(
         'click',
         () => {
 
-
-          const embedURL =
-            `https://www.youtube.com/embed/${videoID}?autoplay=1&rel=0&origin=https%3A%2F%2Fvwleriw.github.io`;
-
-
-          videoIframe.src =
-            embedURL;
+          const targetID =
+            item.dataset.target;
 
 
-          videoOverlay.classList.add(
-            'active'
-          );
+          const target =
+            document.getElementById(
+              targetID
+            );
+
+
+          if (target) {
+
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'center'
+            });
+
+          }
 
         }
       );
 
+    });
 
-      return;
+
+
+    /* ==================================================
+       CHIUDI OVERLAY
+       ================================================== */
+
+    closeBtn.addEventListener(
+      'click',
+      closeVideo
+    );
+
+
+    videoOverlay.addEventListener(
+      'click',
+      e => {
+
+        if (
+          e.target === videoOverlay
+        ) {
+
+          closeVideo();
+
+        }
+
+      }
+    );
+
+
+    function closeVideo() {
+
+      videoOverlay.classList.remove(
+        'active'
+      );
+
+
+      videoIframe.src = "";
 
     }
 
 
 
     /* ==================================================
-       INSTAGRAM
+       ESC
        ================================================== */
 
-    const instagramID =
-      getInstagramID(videoURL);
+    document.addEventListener(
+      'keydown',
+      e => {
 
+        if (
+          e.key === 'Escape'
+        ) {
 
-    if (instagramID) {
-
-
-      /* ==================================================
-         CLICK INSTAGRAM
-         ================================================== */
-
-      thumbnail.addEventListener(
-        'click',
-        () => {
-
-
-          videoIframe.src =
-            `https://www.instagram.com/reel/${instagramID}/embed/`;
-
-
-          videoOverlay.classList.add(
-            'active'
-          );
+          closeVideo();
 
         }
-      );
 
-    }
-
-  });
+      }
+    );
 
 
 
-  /* ==================================================
-     CLICK ANTEPRIME
-     ================================================== */
+    /* ==================================================
+       CLICK FUORI → INDEX
+       ================================================== */
 
-  previewItems.forEach(item => {
-
-
-    item.addEventListener(
+    document.body.addEventListener(
       'click',
-      () => {
+      e => {
 
+        if (
 
-        const targetID =
-          item.dataset.target;
+          !e.target.closest(
+            '.video-thumbnail'
+          ) &&
 
+          !e.target.closest(
+            '.video-overlay'
+          ) &&
 
-        const target =
-          document.getElementById(
-            targetID
-          );
+          !e.target.closest(
+            '.video-title'
+          ) &&
 
+          !e.target.closest(
+            '.preview-item'
+          ) &&
 
-        if (target) {
+          !e.target.closest(
+            '.preview'
+          )
 
+        ) {
 
-          target.scrollIntoView({
-
-            behavior: 'smooth',
-
-            block: 'center'
-
-          });
+          window.location.href =
+            'index.html';
 
         }
 
       }
     );
 
-  });
 
-
-
-  /* ==================================================
-     CHIUDI OVERLAY
-     ================================================== */
-
-  closeBtn.addEventListener(
-    'click',
-    closeVideo
-  );
-
-
-  videoOverlay.addEventListener(
-    'click',
-    e => {
-
-
-      if (
-        e.target === videoOverlay
-      ) {
-
-        closeVideo();
-
-      }
-
-    }
-  );
-
-
-  function closeVideo() {
-
-
-    videoOverlay.classList.remove(
-      'active'
-    );
-
-
-    videoIframe.src =
-      "";
-
-  }
-
-
-
-  /* ==================================================
-     ESC
-     ================================================== */
-
-  document.addEventListener(
-    'keydown',
-    e => {
-
-
-      if (
-        e.key === 'Escape'
-      ) {
-
-        closeVideo();
-
-      }
-
-    }
-  );
-
-
-
-  /* ==================================================
-     CLICK FUORI → INDEX
-     ================================================== */
-
-  document.body.addEventListener(
-    'click',
-    e => {
-
-
-      if (
-
-        !e.target.closest(
-          '.video-thumbnail'
-        ) &&
-
-        !e.target.closest(
-          '.video-overlay'
-        ) &&
-
-        !e.target.closest(
-          '.video-title'
-        ) &&
-
-        !e.target.closest(
-          '.preview-item'
-        ) &&
-
-        !e.target.closest(
-          '.preview'
-        )
-
-      ) {
-
-
-        window.location.href =
-          'index.html';
-
-      }
-
-    }
-  );
-
-
-</script>
+  </script>
 
 
 </body>
